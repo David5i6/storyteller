@@ -27,21 +27,24 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout
+      - name: Checkout de rama "master"
         uses: actions/checkout@master
 
-      - name: Setup node env
+      - name: Configurar entorno de Node.js
         uses: actions/setup-node@v2.1.5
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Install dependencies
+      - name: Instalación de Dependencias
         run: yarn
 
-      - name: Generate
+      - name: Generate (de Next.js)
         run: yarn run generate
 
-      - name: Deploy
+      - name: Desplegar a GitHup Pages
+        if: success()
         uses: crazy-max/ghaction-github-pages@v2.3.0
-        with:
+        with:         
           build_dir: ./dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
