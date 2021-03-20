@@ -5,12 +5,14 @@
 ### Español
 
 Esta es una pequeña aplicación web para ayudar a escribir libros.
+Esta aplicación se encuentra en *desarrollo*. No está terminada.
 
 ### English
 
 This is a small web application to help you write books.
+This application is in *development*. Not a finished one.
 
-## Build Setup / Crear
+## Build Setup / Generar
 
 ```bash
 # install dependencies
@@ -32,4 +34,5 @@ $ yarn generate
 ```
 
 This application is made using Nuxt.js, for more info check out [Nuxt.js docs](https://nuxtjs.org).
+
 Esta aplicación se ha realizado empleando Nuxt.js, para más información consulte [Nuxt.js docs](https://nuxtjs.org).
