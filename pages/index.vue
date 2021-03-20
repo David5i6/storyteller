@@ -43,7 +43,7 @@
     </button>
     <button class="button is-light" @click="exportBook">
       <span class="icon"> <b-icon icon="download" /> </span>
-      <span> Book</span>
+      <span>Export Book</span>
     </button>
     <input
       ref="fileUploadInput"
