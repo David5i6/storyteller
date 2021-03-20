@@ -31,6 +31,12 @@
       <span class="icon"> <b-icon icon="content-save" /> </span>
       <span>Save Book</span>
     </button>
+    <br />
+    <hr />
+    <button class="button is-danger" @click="clearLocalStorage">
+      <span class="icon"> <b-icon icon="eraser" /> </span>
+      <span>Clear Local Storage</span>
+    </button>
 
     <hr />
     <h3 class="title is-4">
@@ -69,6 +75,16 @@ export default {
     },
     saveBook() {
       this.$store.commit('bookstore/persist')
+    },
+    clearLocalStorage() {
+      if (
+        window.confirm(
+          '¿ Desea borrar el contenido almacenado localmente en el navegador ?'
+        )
+      ) {
+        localStorage.clear()
+        window.location.reload()
+      }
     },
     exportBook() {
       const blob = new Blob(

@@ -40,7 +40,6 @@ export const mutations = {
     const tmp = state.book.chapters[prevIndex]
     Vue.set(state.book.chapters, prevIndex, state.book.chapters[chapterIndex])
     Vue.set(state.book.chapters, chapterIndex, tmp)
-    console.log('Subiendo el elemento: ' + chapterIndex)
   },
 
   moveChapterDown(state, chapterIndex) {
@@ -48,7 +47,6 @@ export const mutations = {
     const tmp = state.book.chapters[prevIndex]
     Vue.set(state.book.chapters, prevIndex, state.book.chapters[chapterIndex])
     Vue.set(state.book.chapters, chapterIndex, tmp)
-    console.log('Subiendo el elemento: ' + chapterIndex)
   },
 
   addSection(state, chapterIndex) {
@@ -92,5 +90,13 @@ export const mutations = {
 
   restore(state) {
     state.book = JSON.parse(window.localStorage.getItem('storybook-book'))
+  },
+  restoreOrNew(state) {
+    const rb = window.localStorage.getItem('storybook-book')
+    if (rb && rb !== null) {
+      state.book = JSON.parse(window.localStorage.getItem('storybook-book'))
+    } else {
+      state.book = emptyNewBook()
+    }
   },
 }

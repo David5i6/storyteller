@@ -130,7 +130,7 @@ export default {
   },
 
   mounted() {
-    this.$store.commit('bookstore/restore')
+    this.$store.commit('bookstore/restoreOrNew')
   },
   methods: {
     changeBookTitle(newTitle) {
